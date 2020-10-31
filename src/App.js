@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
+import {BrowserRouter, Route} from 'react-router-dom'
+import Home from './component/Home'
+import ForumDetail from './component/ForumDetail'
+
 import './App.css';
 
-function App() {
+const PageStyle = {padding: '2px 20% 40px 20%'};
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {
+        <BrowserRouter>
+        <div>
+          <div style = {PageStyle}> 
+            <Route path="/" exact component ={Home}></Route>
+            <Route path="/forumDetail" exact component ={ForumDetail}></Route>
+          </div>
+        </div>
+        </BrowserRouter>
+      } 
     </div>
   );
-}
+};
 
 export default App;
